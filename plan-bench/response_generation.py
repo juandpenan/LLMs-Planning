@@ -79,6 +79,7 @@ class ResponseGenerator:
                 if 'caesar' in self.data['domain_name']:
                     stop_statement = caesar_encode(stop_statement)
                 llm_response = send_query(query, self.engine, self.max_gpt_response_length, model=self.model, stop=stop_statement)
+                time.sleep(21)
                 if not llm_response:
                     failed_instances.append(instance['instance_id'])
                     print(f"Failed instance: {instance['instance_id']}")
